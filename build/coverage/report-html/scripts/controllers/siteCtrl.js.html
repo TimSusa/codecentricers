@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for scripts/controllers/siteCtrl.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../prettify.css">
+    <link rel="stylesheet" href="../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header medium">
+    <h1>Code coverage report for <span class="entity">scripts/controllers/siteCtrl.js</span></h1>
+    <h2>
+        Statements: <span class="metric">68.89% <small>(31 / 45)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">10% <small>(1 / 10)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">22.22% <small>(2 / 9)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">68.89% <small>(31 / 45)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">scripts/controllers/</a> &#187; siteCtrl.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+/**
+ * @ngdoc controller
+ * @name codecentricers.controller:SiteCtrl
+ * @module codecentricers
+ * @kind controller
+ * @requires $interpolate
+ * @requires $translate
+ * @requires $document
+ * @requires $location
+ * @requires $route
+ * @requires codecentricers.service:authService
+ * @requires codecentricers.objects:version
+ *
+ * @description
+ * Controller for global site settings used in `index.html`. Removes the `no-js`
+ * class from the `&lt;html&gt;` tag to confirm Angular has started up correctly.
+ *
+ * The site controller exposes the following objects
+ *
+ * * `appVersion` - `{object}` - application-wide {@link codecentricers.objects:version build info}
+ * * `customer` - `{object}` - customer object from {@link codecentricers.objects:globals global configuration}
+ * * `features` - `{object}` - feature object from {@link codecentricers.objects:globals global configuration}
+ *
+ * @example
+ * ```html
+    &lt;html lang="{{site.getLang()}}" class="no-js" ng-app="codecentricers"
+      ng-controller="SiteCtrl as site" ng-class="site.getSiteClasses()"&gt;
+    &lt;head&gt;
+        &lt;base href="/"&gt;
+        &lt;script type="text/javascript" src="scripts/codecentricers.min.js"&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+  ```
+ */
+&nbsp;
+angular.module('codecentricers')
+.controller('SiteCtrl', ['$scope', '$injector', function ($scope, $injector) {
+&nbsp;
+  // 1 self reference
+  var controller = this;
+  var siteClasses = [];
+&nbsp;
+  // 2 requirements
+  var $document        = $injector.get('$document');
+  var $location        = $injector.get('$location');
+  var $route           = $injector.get('$route');
+  var globals          = $injector.get('globals');
+  var version          = $injector.get('version');
+  var $log             = $injector.get('$log');
+  var log              = globals.debug ? angular.bind(null, $log.debug, 'C[Site]') : <span class="branch-1 cbranch-no" title="branch not covered" >angular.noop;</span>
+&nbsp;
+  // 3 Do scope stuff
+  // 3a Set up watchers on the scope
+  // 3b Expose methods or data on the scope
+  // 3c Listen to events on the scope
+  // $scope.$on('$routeChangeStart', checkRoutes);
+  $scope.$on('$routeChangeSuccess', updateSiteClasses);
+  $scope.$on('$routeChangeError', handleRouteError);
+&nbsp;
+  // $scope.$on('login.valid', updateSiteClasses);
+  // $scope.$on('login.success', updateSiteClasses);
+  // $scope.$on('login.expired', updateSiteClasses);
+  // $scope.$on('login.expired', redirectOnLogout);
+&nbsp;
+  // $scope.$on('login.valid', updateAnalytics);
+  // $scope.$on('login.success', updateAnalytics);
+  // $scope.$on('login.expired', updateAnalytics);
+&nbsp;
+  // 4 Expose methods and properties on the controller instance
+  this.getSiteClasses = getSiteClasses;
+  // this.getLang = getLang;
+  // this.setLang = setLang;
+  // this.langs = globals.features.languages;
+  // this.loggedIn = authService.loggedIn;
+  this.go = go;
+  //  this.auth = authService;
+  controller.getCurrentPageTitle = getCurrentPageTitle;
+&nbsp;
+  // pull site configuration into top scope
+  this.appVersion = version;
+  this.customer = globals.customer;
+  this.features = globals.features;
+  this.debug = globals.debug;
+  // this.notImplemented = notImplemented;
+  this.closeNav = closeNav;
+  // controller.startEmailDiag = startEmailDiag;
+&nbsp;
+  // 5. Clean up
+  $scope.$on('$destroy', <span class="fstat-no" title="function not covered" >function () {</span>
+    // Do whatever cleanup might be necessary
+<span class="cstat-no" title="statement not covered" >    controller = null; </span>// MEMLEAK FIX
+<span class="cstat-no" title="statement not covered" >    $scope = null; </span>    // MEMLEAK FIX
+  });
+&nbsp;
+  // startup
+  init();
+&nbsp;
+  // 6. All the actual implementation goes here
+&nbsp;
+  /**
+    * @ngdoc method
+    * @name codecentricers.controller:SiteCtrl#getSiteClasses
+    * @methodOf codecentricers.controller:SiteCtrl
+    * @kind function
+    *
+    * @description
+    * Returns an array of CSS classes to be set on the document's body.
+    *
+    * @returns {Array}  Array of CSS class names to be placed on the `&lt;body&gt;` tag.
+    */
+<span class="fstat-no" title="function not covered" >  function getSiteClasses () {</span>
+<span class="cstat-no" title="statement not covered" >    return siteClasses;</span>
+  }
+&nbsp;
+  function init () {
+    log('init()');
+    // remove noscript class from document's html tag on angular start
+    $document.find('html').eq(0).removeClass('no-js');
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  function updateSiteClasses () {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    siteClasses.length = 0;</span>
+&nbsp;
+    // set &lt;body&gt; class tag to a value defined in route object
+<span class="cstat-no" title="statement not covered" >    if ($route.current &amp;&amp; $route.current.bodyClass) {</span>
+<span class="cstat-no" title="statement not covered" >      siteClasses.push($route.current.bodyClass);</span>
+    }
+  }
+&nbsp;
+  // on $routeChangeError retirect to / and clear URL query params
+<span class="fstat-no" title="function not covered" >  function handleRouteError () {</span>
+<span class="cstat-no" title="statement not covered" >    $location.url('/');</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  function go (url) {</span>
+<span class="cstat-no" title="statement not covered" >    $location.url( url || '/dashboard' );</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  function closeNav () {</span>
+<span class="cstat-no" title="statement not covered" >    var e = angular.element(document).find('.navbar-toggle');</span>
+<span class="cstat-no" title="statement not covered" >    e.click();</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  function getCurrentPageTitle () {</span>
+<span class="cstat-no" title="statement not covered" >    var val = '';</span>
+<span class="cstat-no" title="statement not covered" >    if ($route.current) {</span>
+<span class="cstat-no" title="statement not covered" >      val = $route.current.title;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    return val;</span>
+  }
+}]);
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Jul 31 2016 19:58:37 GMT+0200 (CEST)</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

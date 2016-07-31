@@ -1,0 +1,1467 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for scripts/controllers/userCtrl.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../prettify.css">
+    <link rel="stylesheet" href="../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">scripts/controllers/userCtrl.js</span></h1>
+    <h2>
+        Statements: <span class="metric">10% <small>(2 / 20)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 2)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">0% <small>(0 / 3)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">10% <small>(2 / 20)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">scripts/controllers/</a> &#187; userCtrl.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+/**
+ * @ngdoc controller
+ * @name codecentricers.controller:UserCtrl
+ * @module codecentricers
+ * @kind controller
+ * @requires $location
+ * @requires ngDialog
+ * @requires $log
+ * @requires $q
+ * @requires codecentricers.resources.service:User
+ * @requires codecentricers.resources.service:Auth
+ * @requires codecentricers.service:authService
+ * @requires codecentricers.objects:globals
+ *
+ * @description
+ * Controller for managing user-related actions like login, email, password and user lifecycle.
+ *
+ */
+angular.module('codecentricers')
+.controller('UserCtrl', [ '$scope', '$injector', <span class="fstat-no" title="function not covered" >function ($scope, $injector) {</span>
+&nbsp;
+  // 1 self reference
+<span class="cstat-no" title="statement not covered" >  var controller = this;</span>
+&nbsp;
+  // 2 requirements
+<span class="cstat-no" title="statement not covered" >  var $location        = $injector.get('$location');</span>
+  // var ngDialog         = $injector.get('ngDialog');
+  // var $q               = $injector.get('$q');
+  // var authService      = $injector.get('authService');
+<span class="cstat-no" title="statement not covered" >  var globals          = $injector.get('globals');</span>
+  // var Auth             = $injector.get('Auth');
+  // var User             = $injector.get('User');
+  // var extend           = angular.extend;
+<span class="cstat-no" title="statement not covered" >  var $log = $injector.get('$log');</span>
+<span class="cstat-no" title="statement not covered" >  var log = globals.debug ? angular.bind(null, $log.debug, 'C[UserCtrl]') : angular.noop;</span>
+&nbsp;
+  // var $log             = $injector.get('$log');
+  // var log              = globals.debug ? angular.bind(null, $log.debug, 'C[User]') : angular.noop;
+&nbsp;
+  // 3 Do scope stuff
+  // 3a Set up watchers on the scope
+  // 3b Expose methods or data on the scope
+  // 3c Listen to events on the scope
+&nbsp;
+  // login session expired for some reason
+<span class="cstat-no" title="statement not covered" >  $scope.$on('login.expired', init);</span>
+&nbsp;
+  // login was successful
+<span class="cstat-no" title="statement not covered" >  $scope.$on('login.success', init);</span>
+&nbsp;
+  // 4 Expose methods and properties on the controller instance
+<span class="cstat-no" title="statement not covered" >  this.data = {}; </span>// name, password
+<span class="cstat-no" title="statement not covered" >  this.willRedirect = !!$location.search().redirectTo;</span>
+<span class="cstat-no" title="statement not covered" >  this.usernamePolicy = new RegExp(globals.usernamePolicy);</span>
+<span class="cstat-no" title="statement not covered" >  this.passwordPolicy = new RegExp(globals.passwordPolicy);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  this.user = null;</span>
+&nbsp;
+  // 5. Clean up
+<span class="cstat-no" title="statement not covered" >  $scope.$on('$destroy', <span class="fstat-no" title="function not covered" >function () {</span></span>
+    // Do whatever cleanup might be necessary
+<span class="cstat-no" title="statement not covered" >    controller = null; </span>// MEMLEAK FIX
+<span class="cstat-no" title="statement not covered" >    $scope = null; </span>    // MEMLEAK FIX
+  });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  init();</span>
+&nbsp;
+  // 6. All the actual implementation goes here
+<span class="fstat-no" title="function not covered" >  function init () {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    log('init()');</span>
+<span class="cstat-no" title="statement not covered" >    controller.data = {};</span>
+&nbsp;
+  }
+&nbsp;
+  /**
+    * @ngdoc method
+    * @name codecentricers.controller:UserCtrl#login
+    * @methodOf codecentricers.controller:UserCtrl
+    * @kind function
+    *
+    * @description
+    * Performs user login via the {@link codecentricers.service:authService AuthService}. This method
+    * uses the following data fields exported by the controller:
+    *
+    * - **data.name** - `{string}` user name
+    * - **data.password** - `{string}` user password
+    *
+    * Redirects to user's dashboard on success.
+    *
+    * @returns {Promise}  API call promise that resolves to a {@link codecentricers.resources.service:User User} object
+    *                     or [error object](./guide/concepts) on failure.
+    */
+  // function login (callState) {
+  //   callState.start();
+  //   return authService.login(controller.data.name, controller.data.password)
+  //   .then(callState.success, callState.failed)
+  //   .then(
+  //     function () {
+  //       // redirect the user to /dashboard or redirectTo URL param
+  //       var redirectTo = $location.search().redirectTo || globals.redirectOnLogin;
+  //       $location.path(redirectTo).search({ redirectTo:null });
+  //     }
+  //   );
+  // }
+&nbsp;
+  /**
+    * @ngdoc method
+    * @name codecentricers.controller:UserCtrl#logout
+    * @methodOf codecentricers.controller:UserCtrl
+    * @kind function
+    *
+    * @description
+    * Performs user logout via the {@link codecentricers.service:authService AuthService}.
+    *
+    */
+  // function logout () {
+  //   authService.logout()['finally'](
+  //     function () {
+  //       controller.user = null;
+  //     }
+  //   );
+  // }
+&nbsp;
+  /**
+    * @ngdoc method
+    * @name codecentricers.controller:UserCtrl#create
+    * @methodOf codecentricers.controller:UserCtrl
+    * @kind function
+    *
+    * @description
+    * Performs user create via the {@link codecentricers.service:authService AuthService}. This method
+    * uses the following data fields exported by the controller:
+    *
+    * - **data.name** - `{string}` user name
+    * - **data.password** - `{string}` user password
+    * - **data.email** - `{string}` user's email address (must be same as in registration/create link)
+    * - **data.inviteCode** - `{string}` invitation code (as sent in create link)
+    * - **data.newsletter** - `{boolean}` subscribe to newsletter
+    * - **data.tosAccepted** - `{boolean}` user accepted Terms of Service
+    *
+    * Logs in user and redirects to user's dashboard on success.
+    *
+    * @returns {Promise}  API call promise that resolves to a {@link codecentricers.resources.service:User User} object
+    *                     or [error object](./guide/concepts) on failure.
+    */
+  // function create (callState) {
+  //   callState.start();
+  //   return authService.create({
+  //     'userName': controller.data.name,
+  //     'password': controller.data.password,
+  //     'email': controller.data.email,
+  //     'inviteCode': controller.data.invite,
+  //     'newsletter': controller.data.newsletter,
+  //     'tosAccepted': controller.data.tosAccepted,
+  //     // 'firstName': controller.data.firstname,
+  //     // 'lastName': controller.data.lastname,
+  //     // 'company': controller.data.company,
+  //     // 'country': controller.data.country
+  //   })
+  //   .then(login, callState.failed);
+  // }
+&nbsp;
+  /**
+    * @ngdoc method
+    * @name codecentricers.controller:UserCtrl#register
+    * @methodOf codecentricers.controller:UserCtrl
+    * @kind function
+    *
+    * @description
+    * Registers a user's email address for invitation via {@link codecentricers.service:authService AuthService}.
+    * This method uses the following data fields exported by the controller:
+    *
+    * - **data.email** - `{string}` user's email address
+    *
+    * Opens ngDialog on success which asks for newsletter create.
+    *
+    * @returns {Promise}  API call promise that resolves to a {@link codecentricers.resources.service:User User} object
+    *                     or [error object](./guide/concepts) on failure.
+    */
+  // function register (callState) {
+  //   callState.start();
+  //   return authService.register(controller.data.email)
+  //   .then(callState.success, callState.failed)
+  //   .then(
+  //     function (registration) {
+  //       controller.data = {};
+  //       return ngDialog.open({
+  //         templateUrl: 'dialogs/registration.html',
+  //         className: 'ngdialog-theme-plain',
+  //         data: registration
+  //       }).closePromise.then(function () {
+  //           if (registration.newsletter) {
+  //             return registration.$update();
+  //           } else {
+  //             return $q.when();
+  //           }
+  //         }
+  //       );
+  //     }
+  //   )
+  //   .then(
+  //     function () { $location.url('/'); },
+  //     init
+  //   );
+  // }
+&nbsp;
+  /**
+    * @ngdoc method
+    * @name codecentricers.controller:UserCtrl#changeEmail
+    * @methodOf codecentricers.controller:UserCtrl
+    * @kind function
+    *
+    * @description
+    * Requests to change a user's email address. This is step one of a two-step process.
+    * When successful, the API backend will send a message to the new email address which
+    * contains a unique verification code. Verification is handled by the
+    * {@link codecentricers.controller:EmailVerifyCtrl EmailVerifyCtrl}.
+    *
+    * This method uses the following data fields exported by the controller:
+    *
+    * - **data.email** - `{string}` user's new email address
+    *
+    * @returns {Promise}  API call promise that resolves to a {@link codecentricers.resources.service:User User} object
+    *                     or [error object](./guide/concepts) on failure.
+    */
+  // function changeEmail (callState) {
+  //   if (!controller.user) { return $q.reject(); }
+  //   callState.start();
+  //   // use class function here to avoid $resource overwrite
+  //   return User.resendEmail(
+  //     { userId: controller.user.userId },
+  //     { email: controller.data.email }
+  //   ).$promise.then(
+  //     // ignore return value (= email reset token)
+  //     callState.success,
+  //     // use return error code to render failure message
+  //     callState.failed
+  //   );
+  // }
+&nbsp;
+  /**
+    * @ngdoc method
+    * @name codecentricers.controller:UserCtrl#changeProfile
+    * @methodOf codecentricers.controller:UserCtrl
+    * @kind function
+    *
+    * @description
+    * Changes a user's profile data and starts email address verification in case the address was altered.
+    *
+    * This method uses the following data fields exported by the controller:
+    *
+    * - **user** - `{object}` user object
+    * - **data.email** - `{string}` user's new email address
+    *
+    * @returns {Promise}  API call promise that resolves to a {@link codecentricers.resources.service:User User} object
+    *                     or [error object](./guide/concepts) on failure.
+    */
+  // function changeProfile (callState) {
+  //   if (!controller.user) { return; }
+&nbsp;
+  //   var promises = [];
+&nbsp;
+  //   // changes in email require a different procedure
+  //   callState.start();
+  //   if (controller.data.email !== controller.user.email) {
+  //     promises.push(User.resendEmail(
+  //       { userId:controller.user.userId },
+  //       { email:controller.data.email }
+  //     ).$promise);
+  //   }
+&nbsp;
+  //   // run other updates through PUT (User.update())
+  //   promises.push(controller.user.$update());
+&nbsp;
+  //   // wait for all promises
+  //   return $q.all(promises).then(
+  //     // ignore return value (= email reset token)
+  //     callState.success,
+  //     // use return error code to render failure message
+  //     callState.failed
+  //   );
+  // }
+&nbsp;
+  /**
+    * @ngdoc method
+    * @name codecentricers.controller:UserCtrl#verifyEmail
+    * @methodOf codecentricers.controller:UserCtrl
+    * @kind function
+    *
+    * @description
+    * Performs email address verification based on the information received via a
+    * confirmation link.
+    *
+    * This route may be called with or without a logged in user. On success the
+    * user is redirected to dashboard (when logged in) or home (when not logged in).
+    *
+    * The method uses the following data fields exported by the controller:
+    *
+    * - **data.userId** - `{string}` id of the user to verify
+    * - **data.email** - `{string}` user's new email address
+    * - **data.token** - `{string}` unique verification token
+    *
+    * @returns {Promise}  API call promise that resolves to a {@link codecentricers.resources.service:User User} object
+    *                     or [error object](./guide/concepts) on failure.
+    */
+  // function verifyEmail (userId, token, email, callState) {
+  //   callState = callState || $scope.callState;
+  //   callState.start();
+  //   return User.verifyEmail(
+  //     { userId: userId || controller.data.userId },
+  //     {
+  //       token: token || controller.data.token,
+  //       email: email || controller.data.email
+  //     })
+  //     .$promise.then(callState.success, callState.failed)
+  //     .then(
+  //       function (result) {
+  //         // update the logged in user object if exists
+  //         if (controller.user) {
+  //           extend(controller.user, result);
+  //         }
+  //         return result;
+  //       }
+  //     )
+  //     ['finally'](function (){
+  //       var redirectTo = controller.user ? '/dashboard' : '/';
+  //       // clears all search parameters
+  //       $location.url(redirectTo);
+  //     });
+  // }
+&nbsp;
+  /**
+    * @ngdoc method
+    * @name codecentricers.controller:UserCtrl#closeAccount
+    * @methodOf codecentricers.controller:UserCtrl
+    * @kind function
+    *
+    * @description
+    * Closes a user's account.
+    *
+    * @returns {Promise}  API call promise that resolves to a {@link codecentricers.resources.service:User User} object
+    *                     or [error object](./guide/concepts) on failure.
+    */
+  // function closeAccount (callState) {
+  //   callState = callState || $scope.callState;
+  //   if (!controller.user) { return $q.reject(); }
+  //   callState.start();
+  //   return authService.closeAccount(controller.data.currentPwd)
+  //   .then(callState.success, callState.failed)
+  //   .then(function () {
+  //     $location.url('/'); return true;
+  //   });
+  // }
+&nbsp;
+  /**
+    * @ngdoc method
+    * @name codecentricers.controller:UserCtrl#changePwd
+    * @methodOf codecentricers.controller:UserCtrl
+    * @kind function
+    *
+    * @description
+    * Performs password change for logged-in user.
+    *
+    * The method uses the following data fields exported by the controller:
+    *
+    * - **data.currentPwd** - `{string}` user's current password
+    * - **data.password** - `{string}` user's new password
+    *
+    * @returns {Promise}  API call promise that resolves to a {@link codecentricers.resources.service:User User} object
+    *                     or [error object](./guide/concepts) on failure.
+    */
+  // function changePwd (callState) {
+  //   if (!controller.user) { return $q.reject(); }
+  //   // use class method here to avoid password leakage through URL
+  //   callState.start();
+  //   return User.passwd({ userId: controller.user.userId }, {
+  //     oldPassword: controller.data.currentPwd,
+  //     newPassword: controller.data.password,
+  //   }).$promise
+  //   .then(callState.success, callState.failed)
+  //   .then(
+  //     // ignore return value (= email reset token)
+  //     function (result) {
+  //       extend(controller.user, result);
+  //       init();
+  //       return controller.user;
+  //     }
+  //   );
+  // }
+&nbsp;
+  /**
+    * @ngdoc method
+    * @name codecentricers.controller:UserCtrl#requestPwd
+    * @methodOf codecentricers.controller:UserCtrl
+    * @kind function
+    *
+    * @description
+    * Requests to change a user's password. The user may not be logged in to perform
+    * this operation. This is step one of a two-step process.
+    * When successful, the API backend will send a message to the user's known email address which
+    * contains a unique reset token. Actual password reset is handled by the
+    * {@link codecentricers.controller:PasswordResetCtrl PasswordResetCtrl}.
+    *
+    * On success this method redirects the user to home (/).
+    *
+    * This method uses the following data fields exported by the controller:
+    *
+    * - **data.email** - `{string}` user's email address or user name
+    *
+    * @returns {Promise}  API call promise that resolves to an empty object or
+    * [error object](./guide/concepts) on failure.
+    *
+    */
+  // function requestPwd (callState) {
+  //   var isEmail = controller.data.email.indexOf('@') &gt; -1;
+  //   callState.start();
+  //   return Auth.requestPasswordReset({
+  //     userName: isEmail ? undefined : controller.data.email,
+  //     email: isEmail ? controller.data.email : undefined
+  //   })
+  //   .$promise.then(callState.success, callState.failed)
+  //   .then(
+  //     function () { $location.url('/'); },
+  //     init
+  //   );
+  // }
+&nbsp;
+  /**
+    * @ngdoc method
+    * @name codecentricers.controller:UserCtrl#resetPwd
+    * @methodOf codecentricers.controller:UserCtrl
+    * @kind function
+    *
+    * @description
+    * Performs password reset based on a unique token received via email. The user may not be logged in to perform
+    * this operation. This is step two of a two-step process.
+    *
+    * On success this method redirects the user to home (/).
+    *
+    * The method uses the following data fields exported by the controller:
+    *
+    * - **data.token** - `{string}` unique password reset token
+    * - **data.password** - `{string}` user's new password
+    *
+    * @returns {Promise}  API call promise that resolves to an empty object or
+    * [error object](./guide/concepts) on failure.
+    *
+    */
+  // function resetPwd (callState) {
+  //   callState.start();
+  //   return Auth.confirmPasswordReset({
+  //     token: controller.data.token,
+  //     password: controller.data.password
+  //   })
+  //   .$promise.then(callState.success, callState.failed)
+  //   .then(
+  //     function () { $location.url('/'); },
+  //     init
+  //   );
+  // }
+&nbsp;
+  // function toggleMenu (open) {
+  //   var elem = document.getElementById('side-nav');
+  //   if (open) {
+  //     elem.style.width = '180px';
+  //   } else {
+  //     elem.style.width = '90px';
+  //   }
+&nbsp;
+  //   console.log('elem ', elem);
+  // }
+}]);
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Jul 31 2016 19:58:37 GMT+0200 (CEST)</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for scripts/directives/userNav.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../prettify.css">
+    <link rel="stylesheet" href="../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">scripts/directives/userNav.js</span></h1>
+    <h2>
+        Statements: <span class="metric">12.5% <small>(4 / 32)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 8)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">0% <small>(0 / 6)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">12.5% <small>(4 / 32)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">scripts/directives/</a> &#187; userNav.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+/**
+ * @ngdoc directive
+ * @name codecentricers.directives:UserNav
+ * @module codecentricers
+ * @kind directive
+ *
+ * @description
+ * Directive for top-level navigation.
+ *
+ * Exposes the {@link codecentricers.controller:UserNavCtrl UserNavCtrl} controller as `nav` to the scope
+ * which exports the
+ * following objects
+ *
+ * * `langs` - `{Array&lt;string&gt;}` - supported translation language keys
+ * * `user` - `{object}` - User object when logged in
+ *
+ */
+&nbsp;
+angular.module('codecentricers')
+.directive('userNav', <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >  return {</span>
+    restrict: 'A',
+    replace: true,
+    scope: {
+      userNav: '@userNav'
+    },
+    controller: 'UserNavCtrl',
+    controllerAs: 'nav',
+    templateUrl: 'directives/userNav.html',
+  };
+})
+&nbsp;
+/**
+ * @ngdoc controller
+ * @name codecentricers.controller:UserNavCtrl
+ * @module codecentricers
+ * @kind controller
+ * @requires codecentricers.objects:globals
+ *
+ * @description
+ * Controller for top-level navigation.
+ *
+ */
+.controller('UserNavCtrl', [ '$scope', '$injector', <span class="fstat-no" title="function not covered" >function ($scope, $injector) {</span>
+&nbsp;
+  // 1 self reference
+<span class="cstat-no" title="statement not covered" >  var controller = this;</span>
+&nbsp;
+  // 2 requirements
+<span class="cstat-no" title="statement not covered" >  var $location        = $injector.get('$location');</span>
+<span class="cstat-no" title="statement not covered" >  var globals          = $injector.get('globals');</span>
+&nbsp;
+  // 3 Do scope stuff
+  // 3a Set up watchers on the scope
+  // $scope.$watch(clusterService.getCluster, init);
+  // 3b Expose methods or data on the scope
+  // 3c Listen to events on the scope
+&nbsp;
+  // 4 Expose methods and properties on the controller instance
+  // this.logout = userController.logout.bind(userController);
+<span class="cstat-no" title="statement not covered" >  this.is = is;</span>
+<span class="cstat-no" title="statement not covered" >  this.switchCaret = switchCaret;</span>
+<span class="cstat-no" title="statement not covered" >  this.menuNav = globals.menuNav;</span>
+<span class="cstat-no" title="statement not covered" >  this.isToggled = true;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  var menuIcons = [</span>
+    '/assets/images/menu/menu-bars-2.svg',
+    '/assets/images/menu/menu-close.svg'
+  ];
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  this.minCaret = [];</span>
+<span class="cstat-no" title="statement not covered" >  this.menuIcon = menuIcons[0];</span>
+<span class="cstat-no" title="statement not covered" >  this.getIcon = getIcon;</span>
+&nbsp;
+  // 5. Clean up
+<span class="cstat-no" title="statement not covered" >  $scope.$on('$destroy', <span class="fstat-no" title="function not covered" >function () {</span></span>
+    // Do whatever cleanup might be necessary
+<span class="cstat-no" title="statement not covered" >    controller = null; </span>// MEMLEAK FIX
+<span class="cstat-no" title="statement not covered" >    $scope = null; </span>    // MEMLEAK FIX
+  });
+&nbsp;
+  // 6. All the actual implementation goes here
+&nbsp;
+  /**
+    * @ngdoc method
+    * @name codecentricers.controller:UserNavCtrl#is
+    * @methodOf codecentricers.controller:UserNavCtrl
+    * @kind function
+    *
+    * @description
+    * Check the current URL path obtained from `$location` matches a segment.
+    * This is useful to set CSS active class on navigation elements.
+    *
+    * @param {String} segment String to compare against a url segment.
+    * @param {Number} pos     Position in the URL path to compare, default: 1, When 0
+    *                         matches `segment` against the entire URL path.
+    *
+    * @returns {boolean}  True if the current route contains the string.
+    */
+<span class="fstat-no" title="function not covered" >  function is (segment, pos) {</span>
+<span class="cstat-no" title="statement not covered" >    var url = $location.path();</span>
+<span class="cstat-no" title="statement not covered" >    if (!pos) {</span>
+<span class="cstat-no" title="statement not covered" >      return url === segment;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    var ret = url.split('/')[pos || 1] === segment;</span>
+    // Note: splitting /user/dashboard results in ['','user','dashboard']
+<span class="cstat-no" title="statement not covered" >    return ret;</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  function getIcon ( ) {</span>
+<span class="cstat-no" title="statement not covered" >    if ( controller.isToggled ) {</span>
+<span class="cstat-no" title="statement not covered" >      controller.menuIcon = menuIcons[0];</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      controller.menuIcon = menuIcons[1];</span>
+    }
+<span class="cstat-no" title="statement not covered" >    return controller.menuIcon;</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  function switchCaret ( idx ) {</span>
+<span class="cstat-no" title="statement not covered" >    for(var i = 0; i &lt;= controller.menuNav.main.length;i++){</span>
+<span class="cstat-no" title="statement not covered" >      if (idx !== i) {</span>
+<span class="cstat-no" title="statement not covered" >        controller.minCaret[i] = false;</span>
+      }
+&nbsp;
+    }
+<span class="cstat-no" title="statement not covered" >    controller.minCaret[idx] = !controller.minCaret[idx];</span>
+  }
+}]);
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Jul 31 2016 19:58:37 GMT+0200 (CEST)</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>
