@@ -11,9 +11,9 @@ angular.module('codecentricers')
 
 .constant('globals', {
   baseUrl: 'https://api.github.com',
-  apiToken: 'f2ad7135d7818f5b7334c71ec7214547ea4b90d4',
+  apiToken: 'ae6fa93a683d7a79fc8685b30f662a568d74f5b3', // 'f2ad7135d7818f5b7334c71ec7214547ea4b90d4',
   apiVersion: '1',
-  apiTimeout: 60000,
+  apiTimeout: 10000,
   pollingDelay: 30000,
   maxStartTime: 120000,
   localStorageKey: 'codecentricers',

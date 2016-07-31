@@ -19,7 +19,6 @@
   "smarttabs": false,
   "globals": {
     "angular": false,
-    "moment": false,
-    "Showdown": false
+    "moment": false
   }
 }

@@ -1,0 +1,4 @@
+* text=auto
+
+# JSON should always have lf set on all plattforms
+*.json text eol=lf
