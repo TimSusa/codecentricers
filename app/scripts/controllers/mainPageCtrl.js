@@ -33,7 +33,6 @@ angular.module('codecentricers')
   // 4 Expose methods and properties on the controller instance
   controller.members = [];
 
-  // pull site configuration into top scope
   controller.store = store;
   controller.load = load;
 
