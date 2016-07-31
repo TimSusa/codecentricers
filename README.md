@@ -1,10 +1,12 @@
-# QuickStart
+# Quickstart
+
+## Installation
 ```
   npm install
-  bower install
+  bower install (optional)
 ```
 
-## For developers:
+## Serve Project:
 
 ```
   grunt serve --variant=generic --flavor=develop
@@ -15,10 +17,12 @@
   grunt test --variant=generic --flavor=develop
 ```
 
-## Build for production:
+## CI Build:
 
 ```
-  npm install
-  bower install
   grunt cibuild --variant=generic --flavor=develop
+
+  or
+
+  make use of the build-frontend.sh script
 ```
