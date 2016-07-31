@@ -1,0 +1,52 @@
+<h1><code ng:non-bindable="">SiteCtrl</code>
+<div><span class="hint">controller in module <code ng:non-bindable="">codecentricers</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="codecentricers-controller-page codecentricers-controller-sitectrl-page"><p>Controller for global site settings used in <code>index.html</code>. Removes the <code>no-js</code>
+class from the <code>&lt;html&gt;</code> tag to confirm Angular has started up correctly.</p>
+<p>The site controller exposes the following objects</p>
+<ul>
+<li><code>appVersion</code> - <code>{object}</code> - application-wide <a href="api/codecentricers.objects:version">build info</a></li>
+<li><code>customer</code> - <code>{object}</code> - customer object from <a href="api/codecentricers.objects:globals">global configuration</a></li>
+<li><code>features</code> - <code>{object}</code> - feature object from <a href="api/codecentricers.objects:globals">global configuration</a></li>
+</ul>
+</div></div>
+<h2 id="dependencies">Dependencies</h2>
+<ul class="dependencies"><li><code ng:non-bindable=""><a href="api/ng.$interpolate">$interpolate</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="api/ng.$translate">$translate</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="api/ng.$document">$document</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="api/ng.$location">$location</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="api/ng.$route">$route</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="api/codecentricers.service:authService">authService</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="api/codecentricers.objects:version">version</a></code>
+</li>
+</ul>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_getsiteclasses">getSiteClasses()</h3>
+<div class="getsiteclasses"><div class="codecentricers-controller-page codecentricers-controller-sitectrl-getsiteclasses-page"><p>Returns an array of CSS classes to be set on the document&#39;s body.</p>
+</div><h5 id="methods_getsiteclasses_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="codecentricers-controller-page codecentricers-controller-sitectrl-getsiteclasses-page"><p>Array of CSS class names to be placed on the <code>&lt;body&gt;</code> tag.</p>
+</div></td></tr></table></div>
+</li>
+</ul>
+</div>
+<h2 id="example">Example</h2>
+<div class="example"><div class="codecentricers-controller-page codecentricers-controller-sitectrl-page"><pre><code class="lang-html">&lt;html lang=&quot;{{site.getLang()}}&quot; class=&quot;no-js&quot; ng-app=&quot;codecentricers&quot;
+  ng-controller=&quot;SiteCtrl as site&quot; ng-class=&quot;site.getSiteClasses()&quot;&gt;
+&lt;head&gt;
+    &lt;base href=&quot;/&quot;&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;scripts/codecentricers.min.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</div></div>
+</div>

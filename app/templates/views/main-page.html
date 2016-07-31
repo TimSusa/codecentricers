@@ -1,0 +1,25 @@
+<div class="main-page">
+  <button class="btn btn-primary" basic-click="mpc.load()">
+    load
+  </button>
+  <button class="btn btn-primary" basic-click="mpc.store()">
+    store
+  </button>
+  <div class="black" ng-repeat="mem in mpc.members">
+    <div class="black">
+      <h2>Name:</h2>
+      <p ng-bind="mem.login"></p>
+      <h3>Number of repos:</h3>
+      <p ng-bind="mem.repos.length"></p>
+      <img class="space-bottom" src="{{mem.avatar_url}}">
+      <h3>Repositories and Languages:</h3>
+      <div ng-repeat="repo in mem.repos">
+        <label ng-bind="repo.repoName"></label>
+        <div ng-repeat="lang in repo.lang">
+          <p ng-bind="lang"></p>
+        </div>
+      </div>
+      <hr>
+    </div>
+  </div>
+</div>

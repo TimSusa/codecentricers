@@ -1,0 +1,28 @@
+<h1><code ng:non-bindable="">logInterceptor</code>
+<div><span class="hint">property in module <code ng:non-bindable="">ng</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="ng-httpprovider-page ng-httpprovider-loginterceptor-page"><p>$http interceptor logs success or failure of each API call.</p>
+</div></div>
+<h2 id="dependencies">Dependencies</h2>
+<ul class="dependencies"><li><code ng:non-bindable=""><a href="api/ng.$timeout">$timeout</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="api/ng.$log">$log</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="api/ng.$q">$q</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="api/codecentricers.objects:globals">globals</a></code>
+</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<div class="usage"><pre class="prettyprint linenums">logInterceptor</pre>
+</div>
+<h2 id="example">Example</h2>
+<div class="example"><div class="ng-httpprovider-page ng-httpprovider-loginterceptor-page"><pre><code class="lang-js">angular.module( &#39;codecentricers&#39;, []).config([&#39;$httpProvider&#39;, function ($httpProvider) {
+  $httpProvider.interceptors.push(&#39;logInterceptor&#39;);
+}]);
+</code></pre>
+</div></div>
+</div>

@@ -1,0 +1,18 @@
+@charset 'UTF-8';
+
+.show-480px {
+  @include media('>480px') {
+    display: none;
+  }
+}
+
+.hide-480px {
+  @include media('<=480px') {
+    display: none;
+  }
+}
+
+.main-page {
+
+  text-align: center;
+}

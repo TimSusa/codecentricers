@@ -1,0 +1,138 @@
+<h1><code ng:non-bindable=""></code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><div class="writing-documentation-page"><h2 id="howto-read-and-write-lamdanow-documentation">Howto read and write LamdaNow documentation</h2>
+<p>Documentation in LamdaNow is written inline with the source code in <a href="https://github.com/m7r/grunt-ngdocs">ngdocs</a> style, a special flavor of <a href="http://usejsdoc.org/">JSDocs</a> that is extended by some Angular-specific keywords (see below). jsdocs is quite powerful. It even allows you to mix <a href="https://daringfireball.net/projects/markdown/syntax">Markdown</a>, normal HTML and inline preformatted code.</p>
+<p>ngdocs comes in two parts, a build tool that compiles jsdoc/ngdocs comments found in the source code into HTML templates, and an Angular app that renders the templates and creates a menu structure and handles search around them.</p>
+<div class="alert alert-warning">
+<strong>Note:</strong> although ngdocs is unmaintained as of this writing (early 2015) it is still an easy way of processing documentation. Moreover, it works. An alternative for upgrading would be <a href="https://github.com/Vertafore/docular">docular</a>.
+</div>
+
+
+<h3 id="howto-read-and-write-lamdanow-documentation_browsing-documentation">Browsing Documentation</h3>
+<div class="alert alert-info">
+The best way to access the documentation locally is to run <strong><code>grunt serve</code></strong> and open the url <strong><a href="http://0.0.0.0:9002">http://0.0.0.0:9002</a></strong> in a web browser.
+</div>
+
+<p>Documentation is built as part of the normal application build process. ngdocs writes its output files as self-contained application to <code>dist/docs</code>. From there files may be served by any webserver like a regular single-page app (i.e. rewriting all non-asset urls to index.html).</p>
+<h3 id="howto-read-and-write-lamdanow-documentation_writing-documentation">Writing Documentation</h3>
+<p>Documentation is written in <strong>comment blocks inline with the Javascript code</strong>. Blocks for documenting a service, filter, directive, or controller should start at the top of the file, whereas documentation for functions/methods should be inline directly preceeding the definition of the function.</p>
+<p>In some cases such as overviews or general topics the entire documentation may be put into <code>*.ngdoc</code> files next to the code. For example, you&#39;ll find developer guide and tutorial files under <code>frontend/docs</code>.</p>
+<p>For detailed descriptions, please see the following links or continue reading</p>
+<ul>
+<li><a href="https://github.com/angular/angular.js/wiki/Writing-AngularJS-Documentation">Writing Angular Documentation</a> (out-of-date)</li>
+<li><a href="https://github.com/m7r/grunt-ngdocs/wiki">ngdocs wiki</a> (out-of-date)</li>
+<li><a href="http://usejsdoc.org/">Using JSDoc</a></li>
+</ul>
+<p>A typical ngdocs comment block must at least contain the following pieces:</p>
+<pre><code class="lang-js">/**
+  * @ngdoc &lt;block type&gt;
+  * @name &lt;unit name&gt;
+  * @module &lt;module&gt;
+  * @description &lt;text&gt;
+  */
+</code></pre>
+<p>The <code>@ngdoc</code> keyword defines the <strong>block type</strong> that follows. Different block types require different entries and are rendered and sorted in a different way. <strong>Unit name</strong> is the name of the component (e.g. service, filter, function, top-level module, etc). <strong>Module</strong> is the name of the <a href="https://docs.angularjs.org/guide/module">Angular module</a> in which the documented object is defined. The description may contain Markdown syntax and even inline HTML code.</p>
+<p>ngdocs supports the following block types:</p>
+<ul>
+<li><strong>overview</strong> - the most general block for</li>
+<li><strong>service</strong> - an Angular service</li>
+<li><strong>directive</strong> - an Angular directive</li>
+<li><strong>controller</strong> - an Angular controller</li>
+<li><strong>filter</strong> - an Angular filter</li>
+<li><strong>function</strong> or <strong>method</strong> - a function or method of an object</li>
+<li><strong>interface</strong> - a Javascript object type</li>
+<li><strong>object</strong> - a Javascript object</li>
+<li><strong>error</strong> - an Angular error (not required for code outside Angular itself)</li>
+<li><strong>inputType</strong> - an input field type (not required for code outside Angular itself)</li>
+</ul>
+<h4 id="howto-read-and-write-lamdanow-documentation_writing-documentation_names-and-links-inside-the-documentation">Names and Links inside the Documentation</h4>
+<p>Names in ngdocs are used to uniquely navigate documentation blocks and to assign blocks to categories. Categories define how and where the documentation appears inside the ngdocs app&#39;s navigation menu. ngdocs naming conventions are as follows</p>
+<pre><code>/** For general documentation blocks
+  * @ngdoc overview
+  * @name &lt;module&gt;
+  */
+
+/** For Angular specific objects
+  * @ngdoc {service|directive|filter}
+  * @name &lt;module&gt;.&lt;blocktype&gt;:&lt;unit name&gt;
+  */
+
+/** For Functions
+  * @ngdoc function
+  * @name &lt;module&gt;.&lt;blocktype&gt;:&lt;unit name&gt;#&lt;method name&gt;
+  */
+
+/** For Types (note: unit name must start with uppercase letter)
+  * @ngdoc object
+  * @name &lt;module&gt;:&lt;unit name&gt;
+  */
+</code></pre><p>Links may be written using Markdown syntax as <code>[text](url)</code> or using the ngdocs syntax:</p>
+<ul>
+<li>External Link - {<code>@link http://angular-ui.github.com/ng-grid/ ngGrid</code>}</li>
+<li>Internal link - {<code>@link codecentricers.directive:configGen configGen</code>}</li>
+</ul>
+<p>Note that internal links use the <code>@name</code> of a block as link target.</p>
+<h3 id="howto-read-and-write-lamdanow-documentation_directive-example">Directive Example</h3>
+<pre><code>/**
+  * @ngdoc directive
+  * @name codecentricers.directive:configGen
+  * @module codecentricers
+  * @kind directive
+  * @restrict AE
+  * @element ANY
+  * @description
+  * This directive generates dynamic HTML5 form field sets from definitions....
+  *
+  * @param {expression} data Expression to eval...
+  * @param {expression} readonly Expression to eval...
+  */
+</code></pre><h3 id="howto-read-and-write-lamdanow-documentation_service-example">Service Example</h3>
+<pre><code>/**
+  * @ngdoc service
+  * @name codecentricers.service:authService
+  * @module codecentricers
+  * @kind service
+  * @requires $cookieStore
+  * @requires $rootScope
+  * @requires $location
+  * @requires $route
+  * @requires $http
+  * @requires $log
+  * @requires $q
+  *
+  * @description
+  * Central service for managing user logins. The service stores a local cookie
+  * that contains the user&#39;s name and access token.
+  *
+  */
+</code></pre><h3 id="howto-read-and-write-lamdanow-documentation_function/method-example">Function/Method Example</h3>
+<pre><code>/**
+  * @ngdoc method
+  * @name codecentricers.service:authService#login
+  * @methodOf codecentricers.service:authService
+  * @kind function
+  *
+  * @description
+  * Sends user login request to the backend and stores user credentials on success.
+  *
+  * @param {string} username The username for which to execute the login.
+  * @param {string} password The user&#39;s password.
+  *
+  * @returns {Promise} A promise resolving to the user&#39;s name or failure reason.
+  *
+  */
+</code></pre><h3 id="howto-read-and-write-lamdanow-documentation_event-example">Event Example</h3>
+<pre><code>/**
+  * @ngdoc object
+  * @name codecentricers.service:authService#loginSuccess
+  * @eventOf codecentricers.service:authService
+  * @eventType broadcast on $rootScope
+  * @description
+  * Broadcasted on `$rootScope` if a user was logged in successfully.
+  *
+  * @param {Object} event Synthetic angular event object.
+  * @param {string} username Logged in user&#39;s name.
+  */
+</code></pre></div></div>
