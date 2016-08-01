@@ -4,7 +4,7 @@
 
 # Guide to Codecentricers Documentation
 
-Everything you need to know about developing the Codecentricers fontend application.
+Everything you need to know about developing the Codecentricers frontend application.
 
 <div class="alert alert-warning">
 **Note:** this guide is targeted towards developers who are already familiar with AngularJS basics. If you're just getting started, we recommend you have a look at the [AngularJS Tutorial](https://docs.angularjs.org/tutorial) and the [AngularJS Documentation](https://docs.angularjs.org/guide) first.
