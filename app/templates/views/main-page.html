@@ -5,6 +5,9 @@
   <button class="btn btn-primary" basic-click="mpc.store()">
     store
   </button>
+  <button class="btn btn-primary" basic-click="mpc.countLangs()">
+    count
+  </button>
   <div class="black" ng-repeat="mem in mpc.members">
     <div class="black">
       <h2>Name:</h2>
@@ -12,6 +15,13 @@
       <h3>Number of repos:</h3>
       <p ng-bind="mem.repos.length"></p>
       <img class="space-bottom" src="{{mem.avatar_url}}">
+      <h3>Languages and Counts:</h3>
+      <div ng-repeat="count in mem.langCounts">
+        <div ng-if="count.count > 0">
+          <span ng-bind="count.lang" class="label label-default">          </span>
+          <span class="badge" ng-bind="count.count"></span>
+        </div>
+      </div>
       <h3>Repositories and Languages:</h3>
       <div ng-repeat="repo in mem.repos">
         <label ng-bind="repo.repoName"></label>

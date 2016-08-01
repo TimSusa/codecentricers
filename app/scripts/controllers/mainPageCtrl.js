@@ -35,6 +35,7 @@ angular.module('codecentricers')
 
   controller.store = store;
   controller.load = load;
+  controller.countLangs = countLangs;
 
   // 5. Clean up
   $scope.$on('$destroy', function () {
@@ -203,6 +204,35 @@ angular.module('codecentricers')
     controller.members = null;
     controller.members = storageService.get('blobStorage');
     log('load(): ');
+  }
+
+  function countLangs (  ) {
+    log('countLangs():');
+    controller.members = controller.members.map( function ( memberItem ) {
+      // Prepare Array of results
+      var res = globals.pLangs.map( function ( plang ) {
+        return { 'lang': plang, 'count': 0 };
+      });
+      if (memberItem.repos) {
+        memberItem.repos.map( function ( repoItem ) {
+          var langArray;
+          if ( repoItem.lang ) {
+            langArray = repoItem.lang.map(function( langItem ) {
+              var tmp = langItem.split(':')[0];
+              res = res.map( function ( l ) {
+                if ( l.lang === tmp ) {
+                  l.count++;
+                }
+                return l;
+              });
+              return tmp;
+            });
+          }
+        });
+      }
+      memberItem.langCounts = res;
+      return memberItem;
+    });
   }
 }]);
 
