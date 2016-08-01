@@ -153,7 +153,8 @@ angular.module('codecentricers')
     */
   function queryAllMemberRepos () {
     controller.members.map(function (item) {
-      Github.queryMemberRepos({ userName: item.login }).$promise.then(handleMemberReposSuccess, printError);
+      Github.queryMemberRepos({ userName: item.login }).$promise
+      .then(handleMemberReposSuccess, printError);
     });
   }
 

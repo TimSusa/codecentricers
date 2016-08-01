@@ -1,4 +1,5 @@
 <div class="main-page">
+
   <button class="btn btn-primary" basic-click="mpc.load()">
     load
   </button>
@@ -8,27 +9,37 @@
   <button class="btn btn-primary" basic-click="mpc.countLangs()">
     count
   </button>
+
   <div class="black" ng-repeat="mem in mpc.members">
     <div class="black">
       <h2>Name:</h2>
       <p ng-bind="mem.login"></p>
-      <h3>Number of repos:</h3>
-      <p ng-bind="mem.repos.length"></p>
       <img class="space-bottom" src="{{mem.avatar_url}}">
-      <h3>Languages and Counts:</h3>
+      <h3 ng-if="mem.langCounts">Languages and Counts:</h3>
       <div ng-repeat="count in mem.langCounts">
         <div ng-if="count.count > 0">
           <span ng-bind="count.lang" class="label label-default">          </span>
           <span class="badge" ng-bind="count.count"></span>
         </div>
       </div>
-      <h3>Repositories and Languages:</h3>
-      <div ng-repeat="repo in mem.repos">
-        <label ng-bind="repo.repoName"></label>
-        <div ng-repeat="lang in repo.lang">
-          <p ng-bind="lang"></p>
+      <br>
+      <button class="btn btn-primary" basic-click="mem.isRepHeadingCollapsed = !mem.isRepHeadingCollapsed">
+      {{mem.isRepHeadingCollapsed ? 'Hide Details' : 'Show Details' }}
+      </button>
+      <div collapse="!mem.isRepHeadingCollapsed" >
+        <h3>Number of repos:</h3>
+        <p ng-bind="mem.repos.length"></p>
+        <h3>Repositories and Languages:</h3>
+        <div ng-repeat="repo in mem.repos">
+          <label basic-click="repo.isCollapsed = !repo.isCollapsed" ng-bind="repo.repoName"></label>
+          <div collapse="!repo.isCollapsed" >
+            <div ng-repeat="lang in repo.lang">
+              <p ng-bind="lang"></p>
+            </div>
+          </div>
         </div>
       </div>
+
       <hr>
     </div>
   </div>

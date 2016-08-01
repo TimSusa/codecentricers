@@ -4,3 +4,4 @@
 /dist/
 /compressed/
 /Gemfile.lock
+*.DS_Store
