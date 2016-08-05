@@ -53,12 +53,10 @@ angular.module('codecentricers')
 
   // 3 Do scope stuff
   // 3a Set up watchers on the scope
-  // $scope.$watch(clusterService.getCluster, init);
   // 3b Expose methods or data on the scope
   // 3c Listen to events on the scope
 
   // 4 Expose methods and properties on the controller instance
-  // this.logout = userController.logout.bind(userController);
   this.is = is;
   this.switchCaret = switchCaret;
   this.menuNav = globals.menuNav;

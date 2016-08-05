@@ -4,12 +4,7 @@
  * @name codecentricers.controller:SiteCtrl
  * @module codecentricers
  * @kind controller
- * @requires $interpolate
- * @requires $translate
- * @requires $document
- * @requires $location
  * @requires $route
- * @requires codecentricers.service:authService
  * @requires codecentricers.objects:version
  *
  * @description
@@ -60,21 +55,8 @@ angular.module('codecentricers')
   $scope.$on('$routeChangeSuccess', updateSiteClasses);
   $scope.$on('$routeChangeError', handleRouteError);
 
-  // $scope.$on('login.valid', updateSiteClasses);
-  // $scope.$on('login.success', updateSiteClasses);
-  // $scope.$on('login.expired', updateSiteClasses);
-  // $scope.$on('login.expired', redirectOnLogout);
-
-  // $scope.$on('login.valid', updateAnalytics);
-  // $scope.$on('login.success', updateAnalytics);
-  // $scope.$on('login.expired', updateAnalytics);
-
   // 4 Expose methods and properties on the controller instance
   this.getSiteClasses = getSiteClasses;
-  // this.getLang = getLang;
-  // this.setLang = setLang;
-  // this.langs = globals.features.languages;
-  // this.loggedIn = authService.loggedIn;
   this.go = go;
   //  this.auth = authService;
   controller.getCurrentPageTitle = getCurrentPageTitle;
@@ -86,7 +68,6 @@ angular.module('codecentricers')
   this.debug = globals.debug;
   // this.notImplemented = notImplemented;
   this.closeNav = closeNav;
-  // controller.startEmailDiag = startEmailDiag;
 
   // 5. Clean up
   $scope.$on('$destroy', function () {

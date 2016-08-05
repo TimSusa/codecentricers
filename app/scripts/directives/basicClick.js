@@ -1,7 +1,7 @@
 'use strict';
 /**
  * @ngdoc directive
- * @name codecentricers.directives:clusterStatesView
+ * @name codecentricers.directives:basicClick
  * @module codecentricers
  * @kind controller
  *
