@@ -11,7 +11,7 @@ angular.module('codecentricers')
 
 .constant('globals', {
   baseUrl: 'https://api.github.com',
-  apiToken: '', // 'f2ad7135d7818f5b7334c71ec7214547ea4b90d4',
+  apiToken: '',
   apiVersion: '1',
   apiTimeout: 10000,
   pollingDelay: 30000,
@@ -42,6 +42,8 @@ angular.module('codecentricers')
     'C#',
     'Batchfile',
     'C',
+    'C++',
+    'Cpp',
     'Awk',
     'Groovy',
     'Groff',

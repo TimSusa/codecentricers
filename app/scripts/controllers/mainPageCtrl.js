@@ -98,6 +98,23 @@ angular.module('codecentricers')
 
   /**
     * @ngdoc method
+    * @name codecentricers.controller:MainPageCtrl#queryAllMemberRepos
+    * @methodOf codecentricers.controller:MainPageCtrl
+    * @kind function
+    *
+    * @description
+    * Will query all repositories for all members
+    *
+    */
+  function queryAllMemberRepos () {
+    controller.members.map(function (item) {
+      Github.queryMemberRepos({ userName: item.login }).$promise
+      .then(handleMemberReposSuccess, printError);
+    });
+  }
+
+  /**
+    * @ngdoc method
     * @name codecentricers.controller:MainPageCtrl#handleMemberReposSuccess
     * @methodOf codecentricers.controller:MainPageCtrl
     * @kind function
@@ -139,23 +156,6 @@ angular.module('codecentricers')
     });
 
     return controller.members;
-  }
-
-  /**
-    * @ngdoc method
-    * @name codecentricers.controller:MainPageCtrl#queryAllMemberRepos
-    * @methodOf codecentricers.controller:MainPageCtrl
-    * @kind function
-    *
-    * @description
-    * Will query all repositories for all members
-    *
-    */
-  function queryAllMemberRepos () {
-    controller.members.map(function (item) {
-      Github.queryMemberRepos({ userName: item.login }).$promise
-      .then(handleMemberReposSuccess, printError);
-    });
   }
 
   /**
@@ -214,12 +214,14 @@ angular.module('codecentricers')
       var res = globals.pLangs.map( function ( plang ) {
         return { 'lang': plang, 'count': 0 };
       });
+      // Iterate through member repos and count the langs
       if (memberItem.repos) {
         memberItem.repos.map( function ( repoItem ) {
           var langArray;
           if ( repoItem.lang ) {
             langArray = repoItem.lang.map(function( langItem ) {
               var tmp = langItem.split(':')[0];
+              // Count languages
               res = res.map( function ( l ) {
                 if ( l.lang === tmp ) {
                   l.count++;
@@ -231,6 +233,7 @@ angular.module('codecentricers')
           }
         });
       }
+      // Set the new result
       memberItem.langCounts = res;
       return memberItem;
     });
