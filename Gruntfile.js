@@ -75,20 +75,20 @@ module.exports = function (grunt) {
     },
 
     // use git to fetch current repository revision
-    // 'git-describe': {
-    //   options: {
-    //     template: '{%=object%}{%=dirty%}'
-    //   },
-    //   // empty target to make task run
-    //   dist: {}
-    // },
-    // revision: {
-    //   options: {
-    //     property: 'config.revision',
-    //     ref: 'HEAD',
-    //     short: true
-    //   }
-    // },
+    'git-describe': {
+      options: {
+        template: '{%=object%}{%=dirty%}'
+      },
+      // empty target to make task run
+      dist: {}
+    },
+    revision: {
+      options: {
+        property: 'config.revision',
+        ref: 'HEAD',
+        short: true
+      }
+    },
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
@@ -1008,12 +1008,12 @@ module.exports = function (grunt) {
   });
   // Git: Extract git repository revision and store in grunt config variable
   //
-  // grunt.registerTask('git-revision', function() {
-  //   grunt.event.once('git-describe', function (rev) {
-  //     grunt.config('config.revision', rev.toString());
-  //   });
-  //   grunt.task.run('git-describe');
-  // });
+  grunt.registerTask('git-revision', function() {
+    grunt.event.once('git-describe', function (rev) {
+      grunt.config('config.revision', rev.toString());
+    });
+    grunt.task.run('git-describe');
+  });
 
   // Clean: Register new clean task
   //
@@ -1198,7 +1198,7 @@ module.exports = function (grunt) {
     }
 
     grunt.task.run([
-      // 'git-revision',
+      'git-revision',
       'gruntClean:serve',
       'index',
       'sass:dev',
@@ -1221,7 +1221,7 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('runBuild', [
-    // 'git-revision',
+    'git-revision',
     'gruntClean:serve',
     'index',
     'copy:vendor',
